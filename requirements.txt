@@ -7,7 +7,7 @@ coreapi==2.3.3
 coreschema==0.0.4
 cryptography==41.0.2
 dj-database-url==2.0.0
-Django==4.2.3
+Django==4.2
 django-cors-headers==4.1.0
 django-payments==2.0.0
 django-phonenumber-field==7.1.0
