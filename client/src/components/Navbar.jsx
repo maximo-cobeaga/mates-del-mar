@@ -5,11 +5,11 @@ import OffcanvasHeader from "react-bootstrap/esm/OffcanvasHeader";
 import { Cart4 } from "react-bootstrap-icons";
 import { DropDownButton } from "./DropDownButton";
 import { DropDownCategorias } from "./DropDownCategorias";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 export function NavBar() {
   const [mostrar, setMostrar] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {});
 
@@ -21,42 +21,52 @@ export function NavBar() {
   };
 
   return (
-    <div className="fixed-top">
-      <nav style={{position:'static'}} className="navbar bg-light fixed-top ">
-        <div className="container-fluid ">
+    <>
+      <nav
+        style={{ backgroundColor: "#2D4356" }}
+        className=" navbar fixed-top "
+      >
+        <div className="container-fluid d-flex ">
           <div className="d-flex">
             <button
               onClick={abrir}
-              className="navbar-toggler"
+              className="navbar-toggler "
               type="button"
               data-bs-toggle="offcanvas"
               data-bs-target="#offcanvasNavbar"
               aria-controls="offcanvasNavbar"
               aria-label="Toggle navigation"
+              style={{ backgroundColor: "#F5F5F5" }}
             >
               <span className="navbar-toggler-icon"></span>
             </button>
+
             <DropDownCategorias />
           </div>
 
-          <a className="navbar-brand" onClick={()=>{
-            navigate('/')
-          }}>
-            <h1 className="display-6 fs-3 m-0">Mates del Mar</h1>
+          <a
+            style={{ textDecoration: "none" }}
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            <h1 className="display-6 fs-3 m-0 " style={{ color: "#F5F5F5" }}>
+              Mates del Mar
+            </h1>
           </a>
-          <div className="d-flex ">
-            <DropDownButton />
-            <a onClick={()=>{
-              navigate('/carrito')
-            }} type="button" className="btn btn-light border">
-              <Cart4 size={25} />
-            </a>
-          </div>
+          <a
+            onClick={() => {
+              navigate("/carrito");
+            }}
+            type="button"
+            className="btn btn-light border d-flex"
+          >
+            <Cart4 size={25} />
+            <p className="m-0 ms-1 fw-bold">Carrito</p>
+          </a>
         </div>
       </nav>
 
-      
-      
       <Offcanvas show={mostrar} onHide={cerrar}>
         <OffcanvasHeader closeButton>
           <Offcanvas.Title>Mates del Mar</Offcanvas.Title>
@@ -64,8 +74,8 @@ export function NavBar() {
         <Offcanvas.Body>
           <h5>
             <a
-              onClick={()=>{
-                navigate('/blog')
+              onClick={() => {
+                navigate("/blog");
               }}
               className="text-dark"
               style={{ textDecoration: "None" }}
@@ -76,8 +86,8 @@ export function NavBar() {
           <hr />
           <h5>
             <a
-              onClick={()=>{
-                navigate('/compras')
+              onClick={() => {
+                navigate("/compras");
               }}
               className="text-dark"
               style={{ textDecoration: "None" }}
@@ -88,8 +98,8 @@ export function NavBar() {
           <hr />
           <h5>
             <a
-              onClick={()=>{
-                navigate('/grabados')
+              onClick={() => {
+                navigate("/grabados");
               }}
               className="text-dark"
               style={{ textDecoration: "None" }}
@@ -100,8 +110,8 @@ export function NavBar() {
           <hr />
           <h5>
             <a
-              onClick={()=>{
-                navigate('/regalos')
+              onClick={() => {
+                navigate("/regalos");
               }}
               className="text-dark"
               style={{ textDecoration: "None" }}
@@ -112,8 +122,8 @@ export function NavBar() {
           <hr />
           <h5>
             <a
-              onClick={()=>{
-                navigate('/politicas')
+              onClick={() => {
+                navigate("/politicas");
               }}
               className="text-dark"
               style={{ textDecoration: "None" }}
@@ -124,6 +134,6 @@ export function NavBar() {
           <hr />
         </Offcanvas.Body>
       </Offcanvas>
-    </div>
+    </>
   );
 }

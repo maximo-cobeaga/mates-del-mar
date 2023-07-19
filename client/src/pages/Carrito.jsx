@@ -25,7 +25,7 @@ export function Carrito() {
   const [mostra, setMostra] = useState(false);
 
   const preferenceAPI = axios.create({
-    baseURL: "http://127.0.0.1:8000/payment/proccess-payment/",
+    baseURL: "https://matesdelmar.onrender.com/payment/proccess-payment/",
   });
 
   function preferenciasAuto() {

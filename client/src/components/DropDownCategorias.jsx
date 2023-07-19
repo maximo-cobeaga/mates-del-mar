@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 import { obtenerCategorias } from "../api/categorias.api";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 export function DropDownCategorias() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [categorias, setCategorias] = useState([]);
   useEffect(() => {
     async function cargarDatos() {
@@ -17,13 +17,17 @@ export function DropDownCategorias() {
 
   return (
     <DropdownButton
-      id="dropdown-basic-button"
+      className="text-light"
       title="Productos"
-      variant="primary"
+      variant="none"
     >
-      <Dropdown.Item onClick={()=>{
-        navigate('/')
-      }}>Inicio</Dropdown.Item>
+      <Dropdown.Item
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        Inicio
+      </Dropdown.Item>
       {categorias.map((cat) => (
         <Dropdown.Item
           key={cat.id}

@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const blogAPI = axios.create({
-    baseURL: 'http://127.0.0.1:8000/blog/blog/'
+    baseURL: 'https://matesdelmar.onrender.com/blog/blog/'
 })
 
 export const obtenerBlog = ()=> blogAPI.get('/')
