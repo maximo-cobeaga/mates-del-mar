@@ -25,7 +25,6 @@ export function Transferencia() {
     formData.append("titulo", archivo.name);
     await cargarComprobante(formData);
     enviarMail(compra.concat(DatosTF));
-    setFormularioDatos([]);
   };
 
   return (

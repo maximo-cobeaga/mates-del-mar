@@ -52,7 +52,6 @@ export function PaymentPP() {
                 orderID: data.orderID,
               },
             ];
-            console.log("  --FormularioDatos-- desde paypal");
             enviarMail(compra.concat(datosPP));
             setFormularioDatos([]);
 

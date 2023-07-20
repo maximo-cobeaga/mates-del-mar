@@ -35,6 +35,7 @@ export function Productos() {
 
     if (search) {
       if (serchParams.get("status") === "approved") {
+        console.log(formularioDatos)
         const datosMp = [
           {
             pago: "MercadoPago",
@@ -45,8 +46,6 @@ export function Productos() {
         console.log("  --Compra-- desde: productos");
         console.log(compra.concat(datosMp));
         enviarMail(compra.concat(datosMp))
-
-        setFormularioDatos([]);
 
         cartItem.forEach((prod) => {
           async function apiGet() {
