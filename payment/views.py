@@ -13,9 +13,9 @@ class PaymentView(APIView):
         preference_data = {
             "items": request.data,
             "back_urls": {
-                "success": "http://localhost:5173/",
-                "failure": "http://localhost:5173/",
-                "pending": "http://localhost:5173/"
+                "success": "https://preview.wnpower.host/matesdelmar.com//",
+                "failure": "https://preview.wnpower.host/matesdelmar.com//",
+                "pending": "https://preview.wnpower.host/matesdelmar.com//"
             },
             "auto_return": "approved",
             "notification_url":  "https://8752-2803-9800-9991-8e10-6125-871a-567d-b325.ngrok-free.app/payment/redirect-payment/",
@@ -32,4 +32,3 @@ class RedirectView(APIView):
         print(request.data)
 
         return Response({"request": request.data})
-

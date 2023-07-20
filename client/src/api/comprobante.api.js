@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const comprobanteAPI = axios.create({
-  baseURL: "http://127.0.0.1:8000/ventas/comprobante/comprobante/",
+  baseURL: "https://matesdelmar.onrender.com/ventas/comprobante/comprobante/",
 });
 
 export const cargarComprobante = (comprobante) =>

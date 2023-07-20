@@ -95,7 +95,6 @@ export function Carrito() {
           </button>
           {mostra && <ModalForm mostrar={mostra} setMostrar={setMostra} />}
           {monedaAR()}
-          <Transferencia />
         </div>
       )}
       <Whatsapp />
