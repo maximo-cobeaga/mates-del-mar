@@ -24,9 +24,9 @@ export function CarritoProductos() {
       onLoad={() => {
         setPagar(false);
       }}
-      className="container"
+      className="container" style={{ marginTop:'100px' }}
     >
-      <h1 className="text-center">Carrito de Compras</h1>
+      <h1 className="text-center mt-5">Carrito de Compras</h1>
       {productoLenght === 0 ? (
         <div className="text-center p-5">
           <h1>El carrito de compras esta vacio</h1>

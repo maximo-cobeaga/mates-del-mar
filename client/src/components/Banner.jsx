@@ -16,9 +16,9 @@ export function Banner() {
 
 
   return (
-    <Carousel>
+    <Carousel className="mt-5" >
       {banner.map((b) => (
-        <Carousel.Item interval={3000} style={{height:'500px'}} key={b.id}>
+        <Carousel.Item interval={3000} style={{height:'630px'}} key={b.id}>
         <img
           className="d-block w-100"
           style={{height: '100%', objectFit: "cover", filter: 'brightness(0.65)'}}

@@ -16,11 +16,7 @@ export function DropDownCategorias() {
   }, []);
 
   return (
-    <DropdownButton
-      className="text-light"
-      title="Productos"
-      variant="none"
-    >
+    <DropdownButton title="Productos" variant="outline-light">
       <Dropdown.Item
         onClick={() => {
           navigate("/");

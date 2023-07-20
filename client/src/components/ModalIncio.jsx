@@ -46,7 +46,8 @@ export function ModalIncio({ modalIncioPais, setModalIncioPais }) {
                   required: true,
                 })}
               >
-                <OptionSelect />
+                <option value="AR">Argentina</option>
+                <option value="RES">Resto del Mundo</option>
                 {errors.pais?.type === "required" && (
                   <p>Es obligatorio elegir un pais</p>
                 )}

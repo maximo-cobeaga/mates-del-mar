@@ -3,7 +3,7 @@ import { DropDownCategorias } from "./DropDownCategorias";
 
 export function Footer() {
   return (
-    <footer className="bg-dark text-light mt-5">
+    <footer className="text-light " style={{backgroundColor: '#001C30'}}>
       <div className="container py-3">
         <div className="row">
           <div className="col-md-3">

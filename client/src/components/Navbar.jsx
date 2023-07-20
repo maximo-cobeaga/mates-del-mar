@@ -22,15 +22,12 @@ export function NavBar() {
 
   return (
     <>
-      <nav
-        style={{ backgroundColor: "#2D4356" }}
-        className=" navbar fixed-top "
-      >
-        <div className="container-fluid d-flex ">
+      <nav style={{ backgroundColor: "#2D4356" }} className="  fixed-top ">
+        <div className="navbar container-fluid d-flex ">
           <div className="d-flex">
             <button
               onClick={abrir}
-              className="navbar-toggler "
+              className="navbar-toggler"
               type="button"
               data-bs-toggle="offcanvas"
               data-bs-target="#offcanvasNavbar"
@@ -65,11 +62,23 @@ export function NavBar() {
             <p className="m-0 ms-1 fw-bold">Carrito</p>
           </a>
         </div>
+        <div className="w-100" style={{ backgroundColor: "#F9F5F6" }}>
+          <p className="m-0 text-center">
+            Hacemos envíos a todo el mundo por Dhl ▪ 🧉 Mates 100%
+            personalizados!
+          </p>
+        </div>
       </nav>
 
-      <Offcanvas show={mostrar} onHide={cerrar}>
+      <Offcanvas
+        show={mostrar}
+        onHide={cerrar}
+        style={{ backgroundColor: "#435B66" }}
+      >
         <OffcanvasHeader closeButton>
-          <Offcanvas.Title>Mates del Mar</Offcanvas.Title>
+          <Offcanvas.Title className="text-light">
+            Mates del Mar
+          </Offcanvas.Title>
         </OffcanvasHeader>
         <Offcanvas.Body>
           <h5>
@@ -77,7 +86,7 @@ export function NavBar() {
               onClick={() => {
                 navigate("/blog");
               }}
-              className="text-dark"
+              className="text-light"
               style={{ textDecoration: "None" }}
             >
               Blog Matero
@@ -89,7 +98,7 @@ export function NavBar() {
               onClick={() => {
                 navigate("/compras");
               }}
-              className="text-dark"
+              className="text-light"
               style={{ textDecoration: "None" }}
             >
               Compras Internacionales
@@ -101,7 +110,7 @@ export function NavBar() {
               onClick={() => {
                 navigate("/grabados");
               }}
-              className="text-dark"
+              className="text-light"
               style={{ textDecoration: "None" }}
             >
               Grabados a Laser
@@ -113,7 +122,7 @@ export function NavBar() {
               onClick={() => {
                 navigate("/regalos");
               }}
-              className="text-dark"
+              className="text-light"
               style={{ textDecoration: "None" }}
             >
               Regalos Empresariales
@@ -125,7 +134,7 @@ export function NavBar() {
               onClick={() => {
                 navigate("/politicas");
               }}
-              className="text-dark"
+              className="text-light"
               style={{ textDecoration: "None" }}
             >
               Politicas de Cambios y Devoluciones

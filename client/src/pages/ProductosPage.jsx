@@ -5,6 +5,9 @@ import { useLocalStorage } from "../hooks/useLocalStorage";
 import { ModalIncio } from "../components/ModalIncio";
 import {Footer} from '../components/Footer'
 import {Whatsapp} from './Whatsapp'
+import {InfoTargeta} from '../components/InfoTargeta'
+import {VideoIncio} from '../components/VideoIncio'
+import {Instagram} from '../components/Instagram'
 
 export function ProductosPage() {
   const [modalIncioPais, setModalIncioPais] = useLocalStorage(true, true);
@@ -19,6 +22,9 @@ export function ProductosPage() {
       <Banner />
       <Productos />
       <Whatsapp />
+      <VideoIncio />
+      <InfoTargeta />
+      <Instagram />
       <Footer />
     </>
   );

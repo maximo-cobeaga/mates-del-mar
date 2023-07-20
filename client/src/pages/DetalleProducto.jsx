@@ -7,10 +7,11 @@ import { ProductosContext } from "../context/ProductosContext";
 import { ProductosRelacionados } from "../components/ProductosRelacionados";
 import { FormularioVariacion } from "../components/FormularioVariacion";
 import { Footer } from "../components/Footer";
+import { InfoCompras } from "../components/InfoCompras";
 import { Whatsapp } from "./Whatsapp";
 
 export function DetalleProducto() {
-  const { addItemToCart, prodEnOferta, precioOferta, modalPaisForm } =
+  const { addItemToCart, prodEnOferta, precioOferta, modalIncioPaisForm } =
     useContext(ProductosContext);
   const navigate = useNavigate();
   const params = useParams();
@@ -78,7 +79,7 @@ export function DetalleProducto() {
               <div className="fs-5 mb-5">
                 {prodEnOferta(prod) ? (
                   <>
-                    {modalPaisForm === "AR" ? (
+                    {modalIncioPaisForm === "AR" ? (
                       <span className="text-muted text-decoration-line-through">
                         ${prod.precio}
                       </span>
@@ -88,9 +89,9 @@ export function DetalleProducto() {
                       </span>
                     )}
 
-                    <span>${precioOferta(prod, modalPaisForm)}</span>
+                    <span>${precioOferta(prod, modalIncioPaisForm)}</span>
                   </>
-                ) : modalPaisForm === "AR" ? (
+                ) : modalIncioPaisForm === "AR" ? (
                   <span>${prod.precio}</span>
                 ) : (
                   <span>${prod.precio}</span>
@@ -118,6 +119,7 @@ export function DetalleProducto() {
       {/* <!-- Related items section--> */}
       <ProductosRelacionados etiqueta={prod.etiqueta} />
       <Whatsapp />
+      <InfoCompras />
       <Footer />
     </>
   );

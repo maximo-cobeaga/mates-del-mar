@@ -6,9 +6,9 @@ import { ProductosContext } from "../context/ProductosContext";
 import axios from "axios";
 import { ModalForm } from "../components/ModalForm";
 import { PaymentPP } from "../components/PaymentPP";
-import {Footer} from '../components/Footer'
-import {Whatsapp} from './Whatsapp'
-
+import { Footer } from "../components/Footer";
+import { Whatsapp } from "./Whatsapp";
+import { Transferencia } from "../components/Transferencia";
 
 export function Carrito() {
   const [preferenceId, setPreferenceId] = useState(null);
@@ -60,9 +60,20 @@ export function Carrito() {
 
   function monedaAR() {
     if (preferenceId && modalIncioPaisForm === "AR" && modalFormData) {
-      return <PaymentMP preferenceId={preferenceId} />;
+      return (
+        <>
+          <PaymentMP preferenceId={preferenceId} />
+          <Transferencia />
+        </>
+      );
     } else if (modalIncioPaisForm !== "AR") {
-      if (modalFormData) return <PaymentPP />;
+      if (modalFormData)
+        return (
+          <>
+            <PaymentPP />
+            <Transferencia />
+          </>
+        );
     } else {
     }
   }
@@ -84,9 +95,10 @@ export function Carrito() {
           </button>
           {mostra && <ModalForm mostrar={mostra} setMostrar={setMostra} />}
           {monedaAR()}
+          <Transferencia />
         </div>
       )}
-    <Whatsapp />
+      <Whatsapp />
     </>
   );
 }

@@ -1,12 +1,19 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
+from rest_framework import viewsets
 from rest_framework.response import Response
 import json
 from email.message import EmailMessage
 import ssl
 import smtplib
+from .models import Comprobante
+from .serializer import ComprobanteSerializar
+
 
 # Create your views here.
+class ComprobanteView(viewsets.ModelViewSet):
+    serializer_class = ComprobanteSerializar
+    queryset = Comprobante.objects.all()
 
 
 class VentasView(APIView):
