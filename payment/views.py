@@ -13,7 +13,7 @@ class PaymentView(APIView):
         preference_data = {
             "items": request.data,
             "back_urls": {
-                "success": "http://localhost:5173/",
+                "success": "https://preview.wnpower.host/matesdelmar.com/",
                 "failure": "https://preview.wnpower.host/matesdelmar.com/",
                 "pending": "https://preview.wnpower.host/matesdelmar.com/"
             },
