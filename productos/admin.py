@@ -14,6 +14,8 @@ class ProductoAdmin(admin.ModelAdmin):
         VariacionProductoAdmin,
         ImagenProductoAdmin
     ]
+    list_display = ('titulo', 'precio', 'stock',)
+
 
 
 admin.site.register(Productos, ProductoAdmin)

@@ -1,3 +1,4 @@
+
 """
 Django settings for backend project.
 
@@ -13,6 +14,8 @@ import os
 from pathlib import Path
 from decouple import config
 import dj_database_url
+from socket import gethostname
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,9 +30,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'RENDER' not in config('RENDER')
+DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['62.72.11.104', 'http://62.72.11.104/', 'https://matesdelmarinternacional.com/', 'matesdelmarinternacion.com','www.matesdelmarinternacional.com', 'matesdelmarinternacional.com', 'https://www.matesdelmarinternacional.com/']
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
@@ -92,12 +95,11 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-        # Feel free to alter this value to suit your needs.
-        default=config('DATABASE_URL'),
-        conn_max_age=600
-    )
-}
+    'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 
 # Password validation
@@ -135,45 +137,46 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
-if not DEBUG:
-    # Tell Django to copy statics to the `staticfiles` directory
-    # in your application directory on Render.
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# Tell Django to copy statics to the `staticfiles` directory
+# in your application directory on Render.
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
     # Turn on WhiteNoise storage backend that takes care of compressing static files
     # and creating unique names for each version so they can safely be cached forever.
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
+    'http://localhost:8080',
     'http://localhost:5173',
-    'https://preview.wnpower.host',
-    'http://preview.wnpower.host',
+    'http://62.72.11.104:8080',
+    'http://62.72.11.104',
+    'www.matesdelmarinternacional.com',
+    'https://matesdelmarinternacional.com/',
+    'https://www.matesdelmarinternacional.com/',
 ]
+
 CORS_ORIGIN_WHITELIST = [
+    'http://localhost:8080',
     'http://localhost:5173',
-    'https://preview.wnpower.host',
-    'http://preview.wnpower.host',
+    'http://62.72.11.104:8080',
+    'http://62.72.11.104',
+    'www.matesdelmarinternacional.com',
+    'https://matesdelmarinternacional.com/',
+    'https://www.matesdelmarinternacional.com/',
 ]
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
 }
 
-AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = 'mates-del-mar-backend'
-AWS_S3_SIGNATURE_NAME = 's3v4',
-AWS_S3_REGION_NAME = 'us-east-1'
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None
-AWS_S3_VERITY = True
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-DATA_UPLOAD_MAX_NUMBER_FIELDS = None
+USE_X_FORWARDED_HOST = True
+FORCE_SCRIPT_NAME = "/api"
+
+

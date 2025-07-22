@@ -13,7 +13,7 @@ class Categoria(models.Model):
 class Productos(models.Model):
     titulo = models.CharField(max_length=200)
     descripcion = models.TextField()
-    precio = models.IntegerField()
+    precio = models.IntegerField(default=0)
     precioDolar = models.IntegerField(blank=True, null=True)
     oferta = models.IntegerField(default=0, blank=True)
     stock = models.IntegerField(blank=True, default=0)
@@ -28,6 +28,7 @@ class Productos(models.Model):
 
 
 class ImagenProducto(models.Model):
+    titulo = models.CharField(blank=True, default='',max_length=100)
     imagen = models.ImageField(upload_to='imagenes/')
     producto = models.ForeignKey(
         Productos, on_delete=models.CASCADE, related_name='images')

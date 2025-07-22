@@ -8,17 +8,17 @@ import paypalrestsdk
 class PaymentView(APIView):
     def post(self, request):
         sdk = mercadopago.SDK(
-            'TEST-6611530024366504-071014-d02c435f10e841acab6e45a66e5648c2-1420296772')
+            'APP_USR-65922356739854-082518-5496598cc17f4a36279035a15865d720-457288724')
 
         preference_data = {
             "items": request.data,
             "back_urls": {
-                "success": "https://preview.wnpower.host/matesdelmar.com/",
-                "failure": "https://preview.wnpower.host/matesdelmar.com/",
-                "pending": "https://preview.wnpower.host/matesdelmar.com/"
+                "success": "http://62.72.11.104/",
+                "failure": "http://62.72.11.104/",
+                "pending": "http://62.72.11.104/"
             },
             "auto_return": "approved",
-            "notification_url":  "https://8752-2803-9800-9991-8e10-6125-871a-567d-b325.ngrok-free.app/payment/redirect-payment/",
+            "notification_url":  "https://090d-2803-9800-9991-8e10-61ea-2d97-c4e1-1e75.ngrok-free.app/payment/redirect-payment/",
         }
 
         prefererence_response = sdk.preference().create(preference_data)
